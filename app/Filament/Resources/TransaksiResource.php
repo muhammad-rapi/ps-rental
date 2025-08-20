@@ -169,6 +169,9 @@ class TransaksiResource extends Resource
                     ->dateTime('d/m/Y H:i')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('perangkat.nama')
+                    ->label('Nama Perangkat'),
+                Tables\Columns\TextColumn::make('perangkat.nomor')
+                    ->label('Nomor Perangkat')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('keterangan')
                     ->searchable()

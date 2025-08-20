@@ -105,7 +105,7 @@
                             </div>
                             <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                                 <p><strong>Nomor:</strong> {{ $perangkat->nomor }}</p>
-                                <p><strong>Paket:</strong> {{ $transaction['nama'] }}</p>
+                                <p><strong>Paket:</strong> {{ $transaction['nama_paket'] }}</p>
                                 <p><strong>Sisa Waktu:</strong> 
                                     <span class="font-mono text-lg {{ $remainingSeconds < 300 ? 'text-red-600 dark:text-red-400' : 'text-blue-600 dark:text-blue-400' }}">
                                         {{ sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds) }}
