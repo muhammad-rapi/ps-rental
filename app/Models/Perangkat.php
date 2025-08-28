@@ -16,7 +16,7 @@ class Perangkat extends Model
         return $this->hasMany(Paket::class);
     }
 
-        public function shutdown(): bool
+    public function shutdown(): bool
     {
         if (!$this->alamat_ip || !$this->auto_shutdown) {
             return false;
@@ -90,6 +90,4 @@ class Perangkat extends Model
         $adbService = new AdbService();
         return $adbService->getDeviceInfo($this->alamat_ip, $this->adb_port);
     }
-
-
 }
