@@ -1,4 +1,3 @@
-
 <x-filament-panels::page>
     <div class="space-y-6">
         {{-- Header dengan informasi ringkas --}}
@@ -72,6 +71,29 @@
             {{ $this->table }}
         </div>
 
+        {{-- Inline Form untuk memulai sesi --}}
+        @if($startSessionPerangkatId)
+            @php
+                $perangkat = \App\Models\Perangkat::find($startSessionPerangkatId);
+            @endphp
+           <x-filament::card class="p-6">
+                <form wire:submit.prevent="submitInlineForm" class="space-y-4">
+                    <h3 class="text-xl font-bold dark:text-white">Mulai Sesi Rental untuk {{ $perangkat->nama }}</h3>
+                    
+                    {{ $this->form }}
+
+                    <div class="flex justify-end gap-x-3">
+                        <x-filament::button wire:click="cancelInlineForm" color="secondary" type="button">
+                            Batal
+                        </x-filament::button>
+                        <x-filament::button type="submit">
+                            Mulai Sesi
+                        </x-filament::button>
+                    </div>
+                </form>
+            </x-filament::card>
+        @endif
+
         {{-- Sesi Aktif Detail --}}
         @if(count($this->activeTransactions) > 0)
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow">
@@ -120,5 +142,4 @@
         @endif
     </div>
 
-   
 </x-filament-panels::page>
